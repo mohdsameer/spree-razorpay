@@ -11,11 +11,11 @@ module SpreeRazorpay
       end
 
       def add_stylesheets
-        if File.exists?('vendor/assets/stylesheets/spree/frontend/all.css')
+        if File.exist?('vendor/assets/stylesheets/spree/frontend/all.css')
           inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/razorpay\n", :before => /\*\//, :verbose => true
-        elsif File.exists?('vendor/assets/stylesheets/spree/frontend/all.css.scss')
+        elsif File.exist?('vendor/assets/stylesheets/spree/frontend/all.css.scss')
           append_file 'vendor/assets/stylesheets/spree/frontend/all.css.scss', "\n@import 'spree/razorpay'\n"
-        elsif File.exists?('vendor/assets/stylesheets/spree/frontend/all.scss')
+        elsif File.exist?('vendor/assets/stylesheets/spree/frontend/all.scss')
           append_file 'vendor/assets/stylesheets/spree/frontend/all.scss', "\n@import 'spree/razorpay'\n"
         end
       end
